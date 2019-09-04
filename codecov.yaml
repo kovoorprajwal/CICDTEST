@@ -1,0 +1,100 @@
+# NOTE: For this config to work, "CODECOV_TOKEN" environment variable needs to be set for all the
+# build pipelines / on the project level
+# Token is available at https://codecov.io/gh/extremenetworks/xyzxyzxyz/settings
+codecov:
+  bot: ""
+  notify:
+    require_ci_to_pass: yes
+
+coverage:
+  precision: 2         # decimal places to display: 0 <= value <= 4
+  round: nearest
+  range: 50...90      # custom range of coverage colors from red -> yellow -> green
+
+  status:
+    project:
+      default:
+        default: false
+        # TODO: Define threshold once we actually have some tests
+        #target: auto
+        #threshold: 2%
+        #patch: yes
+      commercialService:
+        flags: commercialService
+        patch: yes
+        changes: no
+      hospitalService:
+        flags: hospitalService
+        patch: yes
+        changes: no
+      hostelService:
+        flags: hostelService
+        patch: yes
+        changes: no
+      saloonService:
+        flags: saloonService
+        patch: yes
+        changes: no
+      commercialWebapp:
+        flags: commercialWebapp
+        patch: yes
+        changes: no
+      hospitalWebapp:
+        flags: hospitalWebapp
+        patch: yes
+        changes: no
+      hostelWebapp:
+        flags: hostelWebapp
+        patch: yes
+        changes: no
+      saloonWebapp:
+        flags: common
+        patch: yes
+        changes: no
+flags:
+  commercialService:
+    paths:
+      - services/commercial
+  hospitalService:
+    paths:
+      - services/hospital
+  hostelService:
+    paths:
+      - services/hostel
+  saloonService:
+    paths:
+      - services/saloon
+  commercialWebapp:
+    paths:
+      - webapp/commercial
+  hospitalWebapp:
+    paths:
+      - webapp/hospital
+  hostelWebapp:
+    paths:
+      - webapp/hostel
+  saloonWebapp:
+    paths:
+      - webapp/saloon
+
+# NOTE: All the service tests set CWD to <service directory>/ so we need to remap all the paths
+# so codecov.io works correctly
+#fixes:
+ # - "services/commercial::action_runner_on_prem/action_runner/"
+ # - "action_runner_cloud/::action_runner_cloud/action_runner/"
+ # - "events_ingester/::events_ingester/events_ingester/"
+ # - "rules_engine/::rules_engine/rules_engine/"
+ # - "common/::common/common/"
+ # - "api/::api/api/"
+
+# NOTE: We ignore all the auto-generated and test files
+ignore:
+  - ".*/tests/.*"
+  - ".*/generated/.*"
+
+comment:
+  layout: "reach, diff, flags, files"
+  behavior: default
+  require_changes: false
+  require_base: yes
+  require_head: yes
