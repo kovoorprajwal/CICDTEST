@@ -20,7 +20,7 @@ ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 
 # Workaround https://github.com/corretto/corretto-8-docker/pull/32
 ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-amazon-corretto
-ARG ci_env=`bash <(curl -s https://codecov.io/env)`
+ci_env=`bash <(curl -s https://codecov.io/env)`
 docker run $ci_env ...
    |----- inside docker container
    | # exec tests
