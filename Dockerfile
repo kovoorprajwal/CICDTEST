@@ -18,4 +18,8 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
 ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 
+WORKDIR /CICDTEST
+RUN mvn install
+curl --data-binary @codecov.yml https://codecov.io/validate
+
 EXPOSE $SERVER_PORT
