@@ -20,6 +20,8 @@ ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 
 RUN mvn install
 
-curl --data-binary @codecov.yml https://codecov.io/validate
+RUN apt-get update
+RUN apt-get install curl
+RUN curl --data-binary @codecov.yml https://codecov.io/validate
 
 EXPOSE $SERVER_PORT
