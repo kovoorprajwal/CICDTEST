@@ -18,6 +18,14 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
 ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 
+FROM alpine/git
+WORKDIR /app
+RUN git clone git@github.com:kovoorprajwal/CICDTEST.git
+
+WORKDIR /app
+COPY --from=0 /app/CICDTEST /app
+RUN mvn install
+
 RUN mvn install
 curl --data-binary @codecov.yml https://codecov.io/validate
 
