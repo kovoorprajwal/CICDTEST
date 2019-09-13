@@ -79,11 +79,11 @@ flags:
 
 # NOTE: All the service tests set CWD to <service directory>/ so we need to remap all the paths
 # so codecov.io works correctly
-#fixes:
- # - "services/commercial::action_runner_on_prem/action_runner/"
- # - "action_runner_cloud/::action_runner_cloud/action_runner/"
- # - "events_ingester/::events_ingester/events_ingester/"
- # - "rules_engine/::rules_engine/rules_engine/"
+fixes:
+  - "services/commercial::/codefresh/volume/CICDTEST/services/commercial"
+  - "services/hospital/::/codefresh/volume/CICDTEST/services/hospital/"
+  - "services/hostel/::/codefresh/volume/CICDTEST/services/hostel/"
+  - "services/saloon/::/codefresh/volume/CICDTEST/services/saloon/"
  # - "common/::common/common/"
  # - "api/::api/api/"
 
