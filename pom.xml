@@ -6,7 +6,7 @@
   <artifactId>parent-project</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>parent-project </name>
+  <name> parent-project </name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
