@@ -80,11 +80,11 @@ flags:
 # NOTE: All the service tests set CWD to <service directory>/ so we need to remap all the paths
 # so codecov.io works correctly
 fixes:
-  - "services/commercial::/codefresh/volume/CICDTEST/services/commercial"
-  - "services/hospital/::/codefresh/volume/CICDTEST/services/hospital/"
-  - "services/hostel/::/codefresh/volume/CICDTEST/services/hostel/"
-  - "services/saloon/::/codefresh/volume/CICDTEST/services/saloon/"
-  - "/::/codefresh/volume/CICDTEST"
+  - "CICDTEST/services/commercial::/codefresh/volume/CICDTEST/services/commercial"
+  - "CICDTEST/services/hospital/::/codefresh/volume/CICDTEST/services/hospital/"
+  - "CICDTEST/services/hostel/::/codefresh/volume/CICDTEST/services/hostel/"
+  - "CICDTEST/services/saloon/::/codefresh/volume/CICDTEST/services/saloon/"
+  - "CICDTEST/::/codefresh/volume/CICDTEST"
  # - "common/::common/common/"
  # - "api/::api/api/"
 
