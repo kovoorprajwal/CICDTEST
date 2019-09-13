@@ -84,6 +84,7 @@ fixes:
   - "services/hospital/::/codefresh/volume/CICDTEST/services/hospital/"
   - "services/hostel/::/codefresh/volume/CICDTEST/services/hostel/"
   - "services/saloon/::/codefresh/volume/CICDTEST/services/saloon/"
+  - "/::/codefresh/volume/CICDTEST"
  # - "common/::common/common/"
  # - "api/::api/api/"
 
